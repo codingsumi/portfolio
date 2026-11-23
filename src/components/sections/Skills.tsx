@@ -30,7 +30,7 @@ export function Skills() {
         <SectionHeading
           eyebrow="Skills & Tech"
           title="A toolkit tuned for production."
-          description="Deep Laravel/PHP roots with modern frontend, backend, cloud, and AI capabilities — logos that ship."
+          description="MERN, React, Next.js, Node.js, Python, Laravel/PHP, cloud, and AI — a production toolkit that ships."
         />
 
         {/* Infinite marquee strip */}

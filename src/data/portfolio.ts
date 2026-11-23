@@ -2,11 +2,12 @@ import type { PortfolioData } from "@/types/portfolio";
 
 export const portfolio: PortfolioData = {
   name: "Sumit Jaiswal",
-  title: "Full Stack Developer | Laravel • PHP • Modern Web & AI",
+  title:
+    "Senior Full Stack Developer | MERN Stack | React.js | Next.js | Node.js | AI Integration",
   shortIntro:
-    "Building scalable products with Laravel, modern JavaScript, and AI — from architecture to production.",
+    "Building scalable web and mobile products across frontend, backend, cloud, and AI — from architecture to production.",
   summary:
-    "Full Stack Developer with 6+ years of experience building scalable web applications primarily with Laravel and PHP, along with modern JavaScript frameworks. Strong hands-on expertise in Laravel, CodeIgniter, React, Next.js, Node.js, FastAPI, Django, PostgreSQL, MySQL, and RESTful APIs. Experienced in leading development teams, owning complex projects end-to-end, and integrating third-party services and AI-powered features into production systems.",
+    "Senior Full Stack Developer with 6+ years of experience designing, developing, and deploying scalable web and mobile applications. Strong hands-on expertise in JavaScript, TypeScript, React.js, Next.js, Node.js, and Express.js, with additional backend depth in Python, Django, FastAPI, Laravel, and PHP. Experienced with PostgreSQL, MongoDB, MySQL, AWS, Docker, and CI/CD, plus OpenAI, LangChain, RAG, and AI-powered product features. Proven in technical leadership, end-to-end project ownership, and reliable production delivery.",
   contact: {
     email: "someitjaiswal.sj.97@gmail.com",
     phone: "+91 73238 37297",
@@ -31,7 +32,7 @@ export const portfolio: PortfolioData = {
     fileName: "Sumit_Jaiswal_Resume.pdf",
     shareTitle: "Sumit Jaiswal | Senior Full Stack Developer",
     shareDescription:
-      "Senior Full Stack Developer with 6+ years of experience building scalable web and mobile applications using MERN Stack, Laravel, Next.js, Python, and modern technologies. Experienced in AI/LLM integrations, REST APIs, cloud infrastructure, AWS, Docker, and end-to-end project delivery.",
+      "Senior Full Stack Developer with 6+ years of experience building scalable web and mobile applications across MERN, React.js, Next.js, Node.js, Python, Laravel/PHP, cloud infrastructure, and AI/LLM integrations. Experienced in REST APIs, AWS, Docker, CI/CD, and end-to-end project delivery.",
   },
   nav: [
     { label: "About", href: "#about" },
@@ -46,26 +47,19 @@ export const portfolio: PortfolioData = {
     {
       title: "Languages",
       skills: [
-        { name: "PHP", level: 95 },
-        { name: "JavaScript", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "Python", level: 80 },
+        { name: "JavaScript", level: 92 },
+        { name: "TypeScript", level: 88 },
+        { name: "Python", level: 82 },
+        { name: "PHP", level: 90 },
         { name: "SQL", level: 90 },
-      ],
-    },
-    {
-      title: "PHP Frameworks",
-      skills: [
-        { name: "Laravel", level: 95 },
-        { name: "CodeIgniter", level: 85 },
       ],
     },
     {
       title: "Frontend",
       skills: [
-        { name: "React.js", level: 88 },
-        { name: "Next.js", level: 85 },
-        { name: "Vue.js", level: 75 },
+        { name: "React.js", level: 90 },
+        { name: "Next.js", level: 88 },
+        { name: "Vue.js", level: 78 },
         { name: "Tailwind CSS", level: 90 },
         { name: "Flutter", level: 70 },
       ],
@@ -73,27 +67,35 @@ export const portfolio: PortfolioData = {
     {
       title: "Backend & APIs",
       skills: [
-        { name: "Node.js / Express", level: 85 },
+        { name: "Node.js / Express", level: 88 },
+        { name: "RESTful APIs", level: 92 },
+        { name: "Laravel", level: 90 },
         { name: "FastAPI", level: 80 },
         { name: "Django", level: 78 },
-        { name: "RESTful APIs", level: 92 },
       ],
     },
     {
       title: "Databases",
       skills: [
-        { name: "MySQL", level: 92 },
         { name: "PostgreSQL", level: 88 },
-        { name: "MongoDB", level: 75 },
+        { name: "MongoDB", level: 82 },
+        { name: "MySQL", level: 90 },
       ],
     },
     {
-      title: "AI & Tools",
+      title: "AI & Integrations",
       skills: [
-        { name: "LangChain / RAG", level: 82 },
         { name: "OpenAI / LLMs", level: 85 },
-        { name: "AWS / Docker", level: 80 },
-        { name: "Git / CI/CD", level: 88 },
+        { name: "LangChain / RAG", level: 82 },
+      ],
+    },
+    {
+      title: "Cloud & DevOps",
+      skills: [
+        { name: "AWS", level: 80 },
+        { name: "Docker", level: 82 },
+        { name: "CI/CD", level: 86 },
+        { name: "Git", level: 90 },
       ],
     },
   ],
@@ -104,8 +106,8 @@ export const portfolio: PortfolioData = {
       period: "Jan 2026 – Present",
       current: true,
       highlights: [
-        "Leading hybrid web and mobile application development using Laravel, PHP, and AI tools.",
-        "Building production features with Laravel, OpenAI, LangChain, FastAPI, Django, and RAG pipelines.",
+        "Leading hybrid web and mobile application development using MERN stack components, Laravel, and AI-assisted tools; owning features from design to production deployment.",
+        "Building production features with OpenAI, LangChain, RAG pipelines, FastAPI, Django, and Laravel while coordinating technical decisions across the team.",
       ],
     },
     {
@@ -113,9 +115,9 @@ export const portfolio: PortfolioData = {
       company: "Jamtech Technologies",
       period: "Jun 2023 – Jan 2026",
       highlights: [
-        "Led the development team across multiple concurrent client projects.",
-        "Built scalable web apps, PWAs, and RESTful APIs with Laravel, Node.js, Express, Django, and FastAPI.",
-        "Owned complex projects end-to-end — architecture, delivery, and iteration.",
+        "Led the development team across multiple concurrent client projects — coordination, code reviews, and technical decisions.",
+        "Built scalable web apps, PWAs, and RESTful APIs with Node.js, Express, Laravel, Django, and FastAPI.",
+        "Owned complex projects end-to-end and deployed on AWS with DevOps practices for reliable production releases.",
       ],
     },
     {
@@ -123,8 +125,8 @@ export const portfolio: PortfolioData = {
       company: "Gautam Tech Solutions",
       period: "Jun 2022 – Jun 2023",
       highlights: [
-        "Delivered full-stack features across PHP/Laravel backends and modern frontends.",
-        "Collaborated with stakeholders to ship reliable, production-ready releases.",
+        "Owned full lifecycle of web applications including server management and production issue resolution.",
+        "Built and extended backend services with Laravel, Django, and FastAPI based on evolving business requirements.",
       ],
     },
     {
@@ -132,7 +134,7 @@ export const portfolio: PortfolioData = {
       company: "Bhavya Technologies",
       period: "Aug 2020 – Sep 2021",
       highlights: [
-        "Developed and maintained web applications with PHP frameworks and JavaScript.",
+        "Built responsive websites and web applications covering frontend, backend, and basic SEO using PHP, Laravel, and JavaScript.",
         "Improved application performance and code quality through iterative refactoring.",
       ],
     },
@@ -141,7 +143,7 @@ export const portfolio: PortfolioData = {
       company: "Sam Softech Consultancy",
       period: "Feb 2019 – Mar 2020",
       highlights: [
-        "Built and maintained client websites and web applications.",
+        "Developed websites using PHP across frontend and backend with Laravel and CodeIgniter.",
         "Established a foundation in full-stack development and client delivery.",
       ],
     },

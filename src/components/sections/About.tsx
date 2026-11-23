@@ -4,7 +4,7 @@ import { portfolio } from "@/data/portfolio";
 
 const highlights = [
   { label: "Years building", value: "6+" },
-  { label: "Focus", value: "Laravel · AI" },
+  { label: "Focus", value: "Full Stack · AI" },
   { label: "Open to", value: "Relocate" },
 ];
 
@@ -15,7 +15,7 @@ export function About() {
         <SectionHeading
           eyebrow="About"
           title="Shipping systems that scale — and teams that do too."
-          description="From Laravel backends to AI-powered features, I own products end-to-end."
+          description="Across frontend, backend, cloud, and AI integrations, I own products end-to-end."
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
