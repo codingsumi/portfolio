@@ -82,8 +82,8 @@ export function ResumeShare({
     if (typeof navigator.share === "function") {
       try {
         await navigator.share({
-          title: `${portfolio.name} — Resume`,
-          text: `View ${portfolio.name}'s resume`,
+          title: portfolio.resume.shareTitle,
+          text: portfolio.resume.shareDescription,
           url,
         });
         return;

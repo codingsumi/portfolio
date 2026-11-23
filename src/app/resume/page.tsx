@@ -8,18 +8,21 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sumitjaiswal.dev";
 
 export const metadata: Metadata = {
-  title: "Resume",
-  description: `Download ${portfolio.name}'s resume — Full Stack Developer specializing in Laravel, PHP, modern web, and AI.`,
+  title: {
+    absolute: portfolio.resume.shareTitle,
+  },
+  description: portfolio.resume.shareDescription,
   openGraph: {
-    title: `${portfolio.name} — Resume`,
-    description: portfolio.shortIntro,
+    title: portfolio.resume.shareTitle,
+    description: portfolio.resume.shareDescription,
     url: `${siteUrl}/resume`,
     type: "website",
+    siteName: portfolio.name,
   },
   twitter: {
-    card: "summary",
-    title: `${portfolio.name} — Resume`,
-    description: portfolio.shortIntro,
+    card: "summary_large_image",
+    title: portfolio.resume.shareTitle,
+    description: portfolio.resume.shareDescription,
   },
   alternates: {
     canonical: `${siteUrl}/resume`,

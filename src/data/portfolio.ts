@@ -29,6 +29,9 @@ export const portfolio: PortfolioData = {
     pdfPath: "/Sumit_Jaiswal_Resume.pdf",
     sharePath: "/resume",
     fileName: "Sumit_Jaiswal_Resume.pdf",
+    shareTitle: "Sumit Jaiswal | Senior Full Stack Developer",
+    shareDescription:
+      "Senior Full Stack Developer with 6+ years of experience building scalable web and mobile applications using MERN Stack, Laravel, Next.js, Python, and modern technologies. Experienced in AI/LLM integrations, REST APIs, cloud infrastructure, AWS, Docker, and end-to-end project delivery.",
   },
   nav: [
     { label: "About", href: "#about" },

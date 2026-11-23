@@ -55,6 +55,10 @@ export interface ResumeConfig {
   /** App route for the shareable resume viewer */
   sharePath: string;
   fileName: string;
+  /** Open Graph / social share title (and PDF Title metadata) */
+  shareTitle: string;
+  /** Open Graph / social share description (and PDF Subject metadata) */
+  shareDescription: string;
 }
 
 export interface PortfolioData {
