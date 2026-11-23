@@ -1,26 +1,443 @@
 @import "tailwindcss";
 
+/* Class-based dark mode for next-themes */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens ─────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f7fb;
+  --background-elevated: #ffffff;
+  --foreground: #0b1220;
+  --muted: #5b6b7c;
+  --border: rgba(15, 23, 42, 0.08);
+  --accent: #0e7490;
+  --accent-bright: #0891b2;
+  --accent-soft: #6366f1;
+  --glow: rgba(8, 145, 178, 0.18);
+  --glow-violet: rgba(99, 102, 241, 0.14);
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --hero-grid: rgba(14, 116, 144, 0.06);
+  --fill-from: #0891b2;
+  --fill-to: #6366f1;
+  --shadow-soft: 0 20px 50px -28px rgba(15, 23, 42, 0.25);
+}
+
+.dark {
+  --background: #030712;
+  --background-elevated: #0a1220;
+  --foreground: #e8eef7;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.12);
+  --accent: #22d3ee;
+  --accent-bright: #67e8f9;
+  --accent-soft: #a78bfa;
+  --glow: rgba(34, 211, 238, 0.22);
+  --glow-violet: rgba(167, 139, 250, 0.16);
+  --glass: rgba(10, 18, 32, 0.72);
+  --glass-border: rgba(148, 163, 184, 0.14);
+  --hero-grid: rgba(34, 211, 238, 0.05);
+  --fill-from: #22d3ee;
+  --fill-to: #a78bfa;
+  --shadow-soft: 0 24px 60px -30px rgba(0, 0, 0, 0.65);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-syne);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
+
+/* Ambient mesh + grid atmosphere (not the primary visual) */
+.site-atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.site-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 10%, var(--glow), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 85% 20%, var(--glow-violet), transparent 50%),
+    radial-gradient(ellipse 40% 40% at 50% 90%, var(--glow), transparent 55%);
+  animation: atmosphere-drift 18s ease-in-out infinite alternate;
+}
+
+.site-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hero-grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent 75%);
+  opacity: 0.7;
+}
+
+@keyframes atmosphere-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, -1.5%, 0) scale(1.05);
+  }
+}
+
+/* Glass utility */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Gradient text fill */
+.text-gradient {
+  background: linear-gradient(120deg, var(--fill-from), var(--fill-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animated gradient border / fill hover */
+.fill-hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fill-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--fill-from) 18%, transparent),
+    color-mix(in oklab, var(--fill-to) 18%, transparent)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fill-hover:hover::before,
+.fill-hover:focus-within::before {
+  transform: scaleX(1);
+}
+
+/* Skill bar track */
+.skill-track {
+  height: 0.4rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--muted) 18%, transparent);
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--fill-from), var(--fill-to));
+  box-shadow: 0 0 16px var(--glow);
+}
+
+/* Focus ring for a11y */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Hero entrance — CSS-only to avoid Framer SSR hydration mismatches */
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal {
+  animation: hero-reveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Futuristic tech logos ─────────────────────────────────── */
+.tech-logo {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.tech-logo-glow {
+  position: absolute;
+  inset: -30%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--tech-glow, var(--accent)) 35%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.tech-logo:hover .tech-logo-glow,
+.group:hover .tech-logo-glow {
+  opacity: 1;
+}
+
+.dark .tech-logo:hover {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--tech-glow, var(--accent)) 40%, transparent),
+    0 0 28px color-mix(in oklab, var(--tech-glow, var(--accent)) 28%, transparent);
+}
+
+:root:not(.dark) .tech-logo:hover {
+  box-shadow: var(--shadow-soft);
+}
+
+@keyframes tech-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.tech-float {
+  animation: tech-float 4.5s ease-in-out infinite;
+}
+
+/* Marquee */
+.tech-marquee-track {
+  animation: tech-marquee 55s linear infinite;
+}
+
+.tech-marquee:hover .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes tech-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Orbit */
+.tech-orbit {
+  --orbit-radius: 7.25rem;
+}
+
+@media (min-width: 640px) {
+  .tech-orbit {
+    --orbit-radius: 8.75rem;
+  }
+}
+
+.tech-orbit-spin {
+  animation: tech-orbit-spin 48s linear infinite;
+}
+
+.tech-orbit-counter {
+  animation: tech-orbit-counter 48s linear infinite;
+}
+
+.tech-orbit-ring {
+  animation: tech-orbit-pulse 6s ease-in-out infinite;
+}
+
+@keyframes tech-orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tech-orbit-counter {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes tech-orbit-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Gradient border / scan line cards */
+.futuristic-card {
+  position: relative;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.futuristic-card::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    130deg,
+    transparent 20%,
+    color-mix(in oklab, var(--fill-from) 55%, transparent),
+    color-mix(in oklab, var(--fill-to) 55%, transparent),
+    transparent 80%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.futuristic-card:hover::after {
+  opacity: 1;
+}
+
+.dark .futuristic-card:hover {
+  box-shadow: 0 0 36px -8px var(--glow);
+}
+
+.scan-line::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in oklab, var(--accent) 18%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 100% 220%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: scan-sweep 3.8s linear infinite;
+  animation-play-state: paused;
+}
+
+.scan-line:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes scan-sweep {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
+}
+
+/* Hero scanning accent */
+.hero-scan {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    var(--accent-soft),
+    transparent
+  );
+  animation: hero-scan 7s ease-in-out infinite;
+  opacity: 0.55;
+}
+
+@keyframes hero-scan {
+  0% {
+    transform: translateY(12vh);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  85% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(88vh);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-atmosphere::before,
+  .hero-reveal,
+  .tech-float,
+  .tech-marquee-track,
+  .tech-orbit-spin,
+  .tech-orbit-counter,
+  .tech-orbit-ring,
+  .scan-line::before,
+  .hero-scan {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
