@@ -17,7 +17,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Projects"
           title="Selected work"
-          description="Production platforms spanning mobility, AI health consulting, and retrieval-augmented knowledge systems."
+          description="Enterprise full-stack platforms spanning promotions, on-demand services, AI fitness commerce, mobility, and knowledge systems — built for real production load."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">

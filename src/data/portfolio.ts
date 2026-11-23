@@ -145,6 +145,77 @@ export const portfolio: PortfolioData = {
   ],
   projects: [
     {
+      title: "Aras Promotions",
+      description:
+        "Enterprise promotions platform where I owned full-stack delivery as a Full Stack Developer — Laravel/PHP APIs and MySQL data models powering event management, brand ambassador workflows, payroll, payment processing, and operational reporting. Built scalable integrations with Dwolla, QuickBooks, Comdata, and OneSignal, plus an Ionic/Angular client layer, to turn complex field promotions into reliable, production-grade business operations.",
+      stack: [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Ionic",
+        "Angular",
+        "RESTful APIs",
+        "Dwolla",
+        "QuickBooks",
+        "Comdata",
+        "OneSignal",
+      ],
+      featured: true,
+    },
+    {
+      title: "All Paws Pet Wash Connection",
+      description:
+        "On-demand self-service pet wash platform for physical locations — pet owners select a service, pay digitally, and get notified in real time. Delivered end-to-end full-stack and native mobile apps with guest, registered, and premium access; Stripe card management and recurring subscriptions; Nayax hardware payment flows; and OneSignal push notifications for a production-ready pet-care operations stack.",
+      stack: [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Kotlin",
+        "Swift",
+        "Stripe",
+        "Nayax",
+        "OneSignal",
+      ],
+      featured: true,
+    },
+    {
+      title: "Onleetech",
+      description:
+        "On-demand technician marketplace connecting customers with technicians through real-time service requests and a First-In-First-Out assignment model — once a technician receives a request, it locks for everyone else. Built the Laravel/PHP + Vue.js/Inertia web stack, Kotlin and Swift apps, Stripe Connect payouts and subscriptions, Firebase/OneSignal realtime alerts, and interactive accept popups for scalable marketplace operations.",
+      stack: [
+        "Laravel",
+        "PHP",
+        "Vue.js",
+        "Inertia.js",
+        "MySQL",
+        "Kotlin",
+        "Swift",
+        "Stripe",
+        "Firebase",
+        "OneSignal",
+      ],
+      featured: true,
+    },
+    {
+      title: "Iron Method AI",
+      description:
+        "AI-powered fitness and supplement e-commerce platform that pairs online shopping with personalized training. Built Laravel/PHP and Vue.js/Inertia commerce flows, QuickPose AI movement assessment, OpenAI-generated one-month workout plans, Agora video calling, ShipStation fulfillment, and Firebase/OneSignal realtime updates — combining computer vision, AI personalization, and scalable commerce architecture.",
+      stack: [
+        "Laravel",
+        "PHP",
+        "Vue.js",
+        "Inertia.js",
+        "MySQL",
+        "OpenAI",
+        "QuickPose AI",
+        "Agora",
+        "ShipStation",
+        "Firebase",
+        "OneSignal",
+      ],
+      featured: true,
+    },
+    {
       title: "Car Comfort",
       description:
         "Full-stack car comfort platform with a Next.js web experience, Express/Node APIs, MySQL data layer, Firebase services, Flutter mobile app, WebSocket real-time updates, and push notifications for live operations.",
