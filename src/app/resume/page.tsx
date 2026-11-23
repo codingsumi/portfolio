@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/resume`,
     type: "website",
     siteName: portfolio.name,
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",

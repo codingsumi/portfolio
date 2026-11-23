@@ -10,7 +10,9 @@ export function getSiteUrl(): string {
 
 /** Absolute shareable URL for the resume viewer page. */
 export function getResumeShareUrl(): string {
-  return `${getSiteUrl()}${portfolio.resume.sharePath}`;
+  // Cache-bust query so WhatsApp/Telegram fetch fresh OG tags after rebrands
+  // (platforms cache previews aggressively; og:url stays canonical on the page).
+  return `${getSiteUrl()}${portfolio.resume.sharePath}?v=senior-fs`;
 }
 
 /** Absolute URL for the raw PDF asset. */
